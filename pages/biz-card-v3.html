@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bright Spark Electric – Minimal Dark</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--y:#FFD700;--d:#0A0A0F;--s:#111118;--c:#1e1e2e;--w:#fff;--m:#888}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--d);color:var(--w);min-height:100vh}
+
+  header{padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e1e2e}
+  .logo{font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+  .logo em{color:var(--y);font-style:normal}
+  header nav{display:flex;gap:2rem}
+  header nav a{color:var(--m);text-decoration:none;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;transition:color .2s}
+  header nav a:hover{color:var(--y)}
+
+  .hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:4rem 2rem;position:relative;overflow:hidden}
+  .hero::before{content:'⚡';position:absolute;font-size:30vw;opacity:.03;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+  .eyebrow{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--y);margin-bottom:1.5rem;border:1px solid rgba(255,215,0,.3);padding:.4rem 1rem;border-radius:20px;display:inline-block}
+  .hero h1{font-size:clamp(2.5rem,8vw,5rem);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:1.5rem}
+  .hero h1 .outline{-webkit-text-stroke:2px var(--y);color:transparent}
+  .hero p{color:var(--m);max-width:480px;line-height:1.8;margin-bottom:3rem;font-size:.95rem}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+  .btn-y{background:var(--y);color:#000;padding:.9rem 2.2rem;border-radius:3px;font-weight:900;text-decoration:none;font-size:.85rem;letter-spacing:1px;text-transform:uppercase}
+  .btn-w{border:1px solid #333;color:var(--w);padding:.9rem 2.2rem;border-radius:3px;font-weight:600;text-decoration:none;font-size:.85rem;letter-spacing:1px;text-transform:uppercase}
+  .scroll-hint{margin-top:4rem;font-size:.7rem;color:#333;letter-spacing:2px;text-transform:uppercase}
+
+  .marquee-wrap{background:var(--y);color:#000;padding:.6rem 0;overflow:hidden;white-space:nowrap;font-weight:800;font-size:.8rem;letter-spacing:1px}
+  .marquee-inner{display:inline-block;animation:scroll 20s linear infinite}
+  @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .sep{margin:0 2rem;opacity:.4}
+
+  section.services{padding:5rem 2rem;max-width:1000px;margin:0 auto}
+  .section-tag{font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--y);margin-bottom:1rem;display:block}
+  .section-title{font-size:2rem;font-weight:800;margin-bottom:3rem;letter-spacing:-1px}
+  .srv-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px}
+  .srv-item{background:var(--s);padding:2rem;border:1px solid #1a1a2e;transition:border-color .2s,background .2s}
+  .srv-item:hover{border-color:var(--y);background:var(--c)}
+  .srv-num{font-size:.65rem;color:var(--y);letter-spacing:3px;margin-bottom:1rem;font-weight:700}
+  .srv-item h3{font-size:1rem;font-weight:700;margin-bottom:.5rem}
+  .srv-item p{font-size:.8rem;color:var(--m);line-height:1.7}
+
+  .cta-full{background:var(--y);color:#000;padding:5rem 2rem;text-align:center}
+  .cta-full h2{font-size:clamp(1.5rem,5vw,3rem);font-weight:900;letter-spacing:-1px;margin-bottom:.5rem}
+  .cta-full p{font-size:.9rem;margin-bottom:2rem;opacity:.7;font-weight:500}
+  .cta-full .tel{font-size:clamp(1.5rem,5vw,2.5rem);font-weight:900;letter-spacing:-1px;display:block;margin-bottom:1.5rem;text-decoration:none;color:#000}
+  .cta-full .btn-dark{background:#000;color:var(--y);padding:.9rem 2rem;border-radius:3px;font-weight:900;text-decoration:none;font-size:.85rem;letter-spacing:1px;text-transform:uppercase}
+
+  footer{border-top:1px solid #1a1a2e;padding:2rem;text-align:center;font-size:.7rem;color:#333;letter-spacing:1px;text-transform:uppercase}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><em>Bright</em> Spark Electric</div>
+  <nav>
+    <a href="#">Services</a>
+    <a href="#">Work</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">⚡ Licensed Residential Electricians</div>
+  <h1>Power.<br>Done <span class="outline">Right.</span></h1>
+  <p>Home electrical services built on precision, safety, and respect for your time. Serving the metro area for 15+ years.</p>
+  <div class="hero-btns">
+    <a href="tel:5555550123" class="btn-y">Call (555) 555-0123</a>
+    <a href="#" class="btn-w">View Services</a>
+  </div>
+  <div class="scroll-hint">↓ scroll to explore</div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    Licensed &amp; Insured <span class="sep">⚡</span> Panel Upgrades <span class="sep">⚡</span> Smart Home Wiring <span class="sep">⚡</span> Same-Day Service <span class="sep">⚡</span> 4.9★ Google Rating <span class="sep">⚡</span> 2,400+ Homes Served <span class="sep">⚡</span> Licensed &amp; Insured <span class="sep">⚡</span> Panel Upgrades <span class="sep">⚡</span> Smart Home Wiring <span class="sep">⚡</span> Same-Day Service <span class="sep">⚡</span> 4.9★ Google Rating <span class="sep">⚡</span> 2,400+ Homes Served <span class="sep">⚡</span>
+  </div>
+</div>
+
+<section class="services">
+  <span class="section-tag">What We Do</span>
+  <h2 class="section-title">Every home electrical<br>need, handled.</h2>
+  <div class="srv-list">
+    <div class="srv-item">
+      <div class="srv-num">01</div>
+      <h3>Panel Upgrades</h3>
+      <p>200-amp upgrades, sub-panels, and safe EV charger installation.</p>
+    </div>
+    <div class="srv-item">
+      <div class="srv-num">02</div>
+      <h3>Lighting & Fans</h3>
+      <p>Recessed, LED, under-cabinet lighting and ceiling fan installs.</p>
+    </div>
+    <div class="srv-item">
+      <div class="srv-num">03</div>
+      <h3>Outlets & Circuits</h3>
+      <p>GFCI, dedicated circuits, and whole-home outlet upgrades.</p>
+    </div>
+    <div class="srv-item">
+      <div class="srv-num">04</div>
+      <h3>Smart Home</h3>
+      <p>Switches, thermostats, doorbells, and home automation wiring.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-full">
+  <h2>Let's Power Your Home.</h2>
+  <p>Free estimates. Same-day appointments available.</p>
+  <a href="tel:5555550123" class="tel">(555) 555-0123</a>
+  <a href="#" class="btn-dark">Get a Free Quote</a>
+</div>
+
+<footer>&copy; 2024 Bright Spark Electric &nbsp;·&nbsp; Licensed &amp; Insured &nbsp;·&nbsp; All Rights Reserved</footer>
+</body>
+</html>

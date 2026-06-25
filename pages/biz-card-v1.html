@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bright Spark Electric – Clean & Bold</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--y:#FFB800;--d:#1C1C2E;--w:#fff}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--d);color:var(--w);min-height:100vh}
+
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;border-bottom:2px solid var(--y)}
+  .logo{display:flex;align-items:center;gap:.6rem;font-size:1.2rem;font-weight:700;letter-spacing:1px}
+  .logo svg{width:32px;height:32px}
+  nav a{color:var(--y);text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:.5px}
+
+  .hero{text-align:center;padding:5rem 2rem 4rem;background:linear-gradient(160deg,#12122a 0%,#1C1C2E 60%,#2a1f00 100%)}
+  .hero h1{font-size:clamp(2rem,6vw,3.5rem);font-weight:900;line-height:1.1;margin-bottom:1rem}
+  .hero h1 span{color:var(--y)}
+  .hero p{color:#ccc;max-width:520px;margin:0 auto 2rem;line-height:1.7}
+  .btn{display:inline-block;background:var(--y);color:var(--d);padding:.8rem 2rem;border-radius:4px;font-weight:800;text-decoration:none;font-size:.9rem;letter-spacing:.5px}
+  .btn-ghost{background:transparent;border:2px solid var(--y);color:var(--y);margin-left:1rem}
+
+  .trust{display:flex;justify-content:center;gap:2.5rem;padding:2rem;flex-wrap:wrap}
+  .trust-item{text-align:center}
+  .trust-item .num{font-size:2rem;font-weight:900;color:var(--y)}
+  .trust-item .label{font-size:.75rem;color:#999;letter-spacing:1px;text-transform:uppercase}
+
+  .services{padding:4rem 2rem;background:#12122a}
+  .services h2{text-align:center;font-size:1.8rem;margin-bottom:2.5rem}
+  .services h2 span{color:var(--y)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:900px;margin:0 auto}
+  .card{background:#1C1C2E;border:1px solid #2e2e4e;border-radius:8px;padding:1.5rem;text-align:center}
+  .card svg{width:40px;height:40px;margin-bottom:1rem;fill:var(--y)}
+  .card h3{font-size:1rem;margin-bottom:.5rem}
+  .card p{font-size:.8rem;color:#aaa;line-height:1.6}
+
+  .cta-band{background:var(--y);color:var(--d);padding:3rem 2rem;text-align:center}
+  .cta-band h2{font-size:1.6rem;font-weight:900;margin-bottom:.5rem}
+  .cta-band p{margin-bottom:1.5rem;font-size:.95rem;font-weight:500}
+  .cta-band .btn{background:var(--d);color:var(--y)}
+
+  footer{padding:2rem;text-align:center;font-size:.75rem;color:#555;border-top:1px solid #2e2e4e}
+  footer span{color:var(--y)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#FFB800"/><polygon points="36,6 20,34 30,34 28,60 44,30 34,30" fill="#1C1C2E"/></svg>
+    Bright Spark Electric
+  </div>
+  <a href="tel:5555550123">(555) 555-0123</a>
+</nav>
+
+<section class="hero">
+  <h1>Your Home.<br><span>Powered Right.</span></h1>
+  <p>Licensed residential electricians serving the greater metro area. Fast response, fair pricing, and work that lasts.</p>
+  <a href="#" class="btn">Get a Free Quote</a>
+  <a href="#" class="btn btn-ghost">Our Services</a>
+</section>
+
+<div class="trust">
+  <div class="trust-item"><div class="num">15+</div><div class="label">Years Experience</div></div>
+  <div class="trust-item"><div class="num">2,400+</div><div class="label">Jobs Completed</div></div>
+  <div class="trust-item"><div class="num">4.9★</div><div class="label">Google Rating</div></div>
+  <div class="trust-item"><div class="num">24/7</div><div class="label">Emergency Service</div></div>
+</div>
+
+<section class="services">
+  <h2>What We <span>Fix & Install</span></h2>
+  <div class="grid">
+    <div class="card">
+      <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+      <h3>Panel Upgrades</h3>
+      <p>200-amp service upgrades for modern homes and EV chargers.</p>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+      <h3>Outlet & Wiring</h3>
+      <p>New outlets, GFCI upgrades, and whole-home rewiring.</p>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <h3>Lighting</h3>
+      <p>Recessed, under-cabinet, smart lighting and ceiling fans.</p>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+      <h3>Smart Home</h3>
+      <p>Nest, Ring, smart switches, and whole-home automation.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Same-Day Service Available</h2>
+  <p>Call before noon — we'll be there today.</p>
+  <a href="tel:5555550123" class="btn">(555) 555-0123</a>
+</div>
+
+<footer>
+  &copy; 2024 <span>Bright Spark Electric</span> · Licensed &amp; Insured · All Rights Reserved
+</footer>
+</body>
+</html>

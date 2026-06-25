@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bright Spark Electric – Light & Airy</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--y:#F5A623;--d:#1A1A1A;--w:#FAFAFA;--g:#F0F0F0;--blue:#003366}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--w);color:var(--d)}
+
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2.5rem;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+  .logo{display:flex;align-items:center;gap:.5rem;font-size:1.1rem;font-weight:800;color:var(--blue);letter-spacing:.5px}
+  .logo-icon{width:36px;height:36px;background:var(--y);border-radius:8px;display:grid;place-items:center}
+  .logo-icon svg{width:20px;height:20px;fill:#fff}
+  nav ul{display:flex;gap:1.5rem;list-style:none}
+  nav ul a{color:#333;text-decoration:none;font-size:.85rem;font-weight:600}
+  .nav-cta{background:var(--y);color:#fff!important;padding:.5rem 1.2rem;border-radius:4px}
+
+  .hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:85vh;padding:3rem 2.5rem;gap:3rem;background:linear-gradient(135deg,var(--blue) 0%,#005599 100%);color:#fff}
+  .hero-text h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.15;margin-bottom:1rem}
+  .hero-text h1 em{color:var(--y);font-style:normal}
+  .hero-text p{color:#cde;line-height:1.8;margin-bottom:2rem;font-size:.95rem}
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+  .btn-primary{background:var(--y);color:#fff;padding:.85rem 2rem;border-radius:6px;font-weight:700;text-decoration:none;font-size:.9rem}
+  .btn-outline{border:2px solid rgba(255,255,255,.5);color:#fff;padding:.85rem 2rem;border-radius:6px;font-weight:700;text-decoration:none;font-size:.9rem}
+  .hero-visual{background:rgba(255,255,255,.08);border-radius:16px;padding:2.5rem;text-align:center;border:1px solid rgba(255,255,255,.15)}
+  .hero-visual svg{width:100px;height:100px;fill:var(--y);margin-bottom:1.5rem}
+  .hero-visual .phone{font-size:1.6rem;font-weight:900;color:var(--y);display:block;margin-bottom:.4rem}
+  .hero-visual small{font-size:.75rem;color:#aac;letter-spacing:1px;text-transform:uppercase}
+  .badge{display:inline-block;background:rgba(255,184,0,.15);border:1px solid var(--y);color:var(--y);font-size:.7rem;padding:.3rem .7rem;border-radius:20px;margin-bottom:1rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+
+  .stats{background:#fff;display:flex;justify-content:space-around;padding:2rem;border-bottom:1px solid #eee;flex-wrap:wrap;gap:1rem}
+  .stat{text-align:center}
+  .stat .n{font-size:1.8rem;font-weight:900;color:var(--blue)}
+  .stat .l{font-size:.72rem;color:#888;text-transform:uppercase;letter-spacing:1px}
+
+  .services{padding:4rem 2.5rem;background:var(--g)}
+  .services h2{text-align:center;font-size:1.6rem;font-weight:800;color:var(--blue);margin-bottom:.5rem}
+  .services .sub{text-align:center;color:#666;font-size:.85rem;margin-bottom:2.5rem}
+  .srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;max-width:960px;margin:0 auto}
+  .srv-card{background:#fff;border-radius:10px;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.06);border-top:4px solid var(--y)}
+  .srv-card h3{font-size:.95rem;font-weight:700;color:var(--blue);margin-bottom:.5rem}
+  .srv-card p{font-size:.8rem;color:#666;line-height:1.6}
+
+  .testimonial{background:var(--blue);color:#fff;padding:4rem 2.5rem;text-align:center}
+  .testimonial blockquote{font-size:1.2rem;font-style:italic;max-width:600px;margin:0 auto 1.5rem;line-height:1.7;color:#cde}
+  .testimonial cite{font-size:.8rem;color:var(--y);font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+
+  .contact{padding:4rem 2.5rem;text-align:center;background:#fff}
+  .contact h2{font-size:1.5rem;font-weight:800;color:var(--blue);margin-bottom:.5rem}
+  .contact p{color:#666;margin-bottom:1.5rem;font-size:.9rem}
+  .phone-big{font-size:2.2rem;font-weight:900;color:var(--y);display:block;margin-bottom.5rem}
+  .contact .btn-primary{font-size:1rem}
+
+  footer{background:#111;color:#666;padding:1.5rem;text-align:center;font-size:.75rem}
+  footer span{color:var(--y)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+    Bright Spark Electric
+  </div>
+  <ul>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Reviews</a></li>
+    <li><a href="tel:5555550123" class="nav-cta">Call Now</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="badge">⚡ Licensed &amp; Insured</div>
+    <h1>Expert Electrical<br>Service for Your <em>Home</em></h1>
+    <p>Trusted by thousands of homeowners. We handle everything from outlet repairs to full panel upgrades — done right the first time.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">Free Quote</a>
+      <a href="#" class="btn-outline">See Our Work</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    <span class="phone">(555) 555-0123</span>
+    <small>Available 7 Days a Week</small>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="n">15+</div><div class="l">Years in Business</div></div>
+  <div class="stat"><div class="n">2,400+</div><div class="l">Homes Served</div></div>
+  <div class="stat"><div class="n">4.9 ★</div><div class="l">Google Rating</div></div>
+  <div class="stat"><div class="n">Same-Day</div><div class="l">Service Available</div></div>
+</div>
+
+<section class="services">
+  <h2>Our Services</h2>
+  <p class="sub">Residential electrical work done safely, efficiently, and affordably.</p>
+  <div class="srv-grid">
+    <div class="srv-card"><h3>⚡ Panel Upgrades</h3><p>200-amp upgrades, sub-panels, and EV charger installations.</p></div>
+    <div class="srv-card"><h3>💡 Lighting</h3><p>Recessed lighting, dimmer switches, ceiling fans, and smart bulbs.</p></div>
+    <div class="srv-card"><h3>🔌 Outlets & Wiring</h3><p>New outlets, GFCI, tamper-resistant, and USB combo receptacles.</p></div>
+    <div class="srv-card"><h3>🏠 Smart Home</h3><p>Smart switches, thermostats, Ring doorbells, and full home automation.</p></div>
+  </div>
+</section>
+
+<div class="testimonial">
+  <blockquote>"Bright Spark came out the same day, fixed our panel issue, and even upgraded our kitchen outlets. Professional, fast, and very fairly priced."</blockquote>
+  <cite>— Sarah M., Verified Google Review</cite>
+</div>
+
+<section class="contact">
+  <h2>Ready to Get Started?</h2>
+  <p>Call us or request a free quote online — we respond within the hour.</p>
+  <a href="tel:5555550123" class="phone-big">(555) 555-0123</a><br><br>
+  <a href="#" class="btn-primary">Request a Free Quote →</a>
+</section>
+
+<footer>&copy; 2024 <span>Bright Spark Electric</span> · Licensed &amp; Insured · All Rights Reserved</footer>
+</body>
+</html>
