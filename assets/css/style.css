@@ -236,6 +236,11 @@ body{
   filter:blur(12px);
 }
 .van3d-hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:.68rem;color:#5a5a66;letter-spacing:2px;text-transform:uppercase;pointer-events:none}
+/* photo mockup */
+.mockup-card{border:1px solid var(--b);border-radius:var(--radius);overflow:hidden;background:var(--s)}
+.mockup-card img{width:100%;display:block}
+.mockup-caption{padding:1rem 1.5rem;font-size:.72rem;color:var(--m);line-height:1.6;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;border-top:1px solid var(--b)}
+.mockup-caption span:last-child{color:#55555f;white-space:nowrap}
 @media(max-width:768px){
   .van3d-viewport{height:400px;perspective:1100px}
 }
