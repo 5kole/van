@@ -8,12 +8,9 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
   /* ===== VAN TAB UI ===== */
-  .van-tabs{display:flex;gap:0;border-bottom:1px solid var(--b);background:var(--c);padding:0 1.5rem}
+  .van-tabs{display:flex;gap:0;border-bottom:1px solid var(--b);background:var(--c);padding:0 1.5rem;flex-wrap:wrap}
   .van-tab{padding:.75rem 1.2rem;font-size:.75rem;font-weight:700;letter-spacing:.5px;cursor:pointer;color:var(--m);border-bottom:2px solid transparent;transition:color .2s,border-color .2s;text-transform:uppercase}
   .van-tab.active{color:var(--red2);border-bottom-color:var(--red)}
-  .van-view{display:none}
-  .van-view.active{display:block;animation:fadeIn .3s ease}
-  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
   /* ===== FAVICON OPTION LABELS ===== */
   .fav-option-label{
@@ -37,11 +34,11 @@
     <symbol id="cooper-badge" viewBox="0 0 200 200">
       <circle cx="100" cy="100" r="97" fill="#0B0B0D"/>
       <circle cx="100" cy="100" r="94" fill="none" stroke="#fff" stroke-width="1.5"/>
-      <circle cx="100" cy="100" r="85" fill="none" stroke="#fff" stroke-width="3.5"/>
-      <polygon points="121,29 85,87 105,87 95,125 138,69 116,69" fill="#1E56B0"/>
-      <polygon points="114,24 78,82 98,82 88,120 131,64 109,64" fill="#DD2A1F"/>
-      <text x="100" y="149" text-anchor="middle" font-family="'Arial Narrow','Segoe UI',system-ui,sans-serif" font-weight="900" font-size="31" fill="#fff" letter-spacing="1">COOPER</text>
-      <text x="100" y="170" text-anchor="middle" font-family="'Arial Narrow','Segoe UI',system-ui,sans-serif" font-weight="700" font-size="14" fill="#fff" letter-spacing="2.5">ELECTRICAL</text>
+      <circle cx="100" cy="100" r="86" fill="none" stroke="#fff" stroke-width="3"/>
+      <polygon points="118,30 86,84 104,84 96,120 134,66 114,66" fill="#1E56B0"/>
+      <polygon points="112,26 80,80 98,80 90,116 128,62 108,62" fill="#DD2A1F"/>
+      <text x="100" y="146" text-anchor="middle" font-family="'Arial Narrow','Segoe UI',system-ui,sans-serif" font-weight="900" font-size="26" fill="#fff" letter-spacing="1">COOPER</text>
+      <text x="100" y="164" text-anchor="middle" font-family="'Arial Narrow','Segoe UI',system-ui,sans-serif" font-weight="700" font-size="11.5" fill="#fff" letter-spacing="2">ELECTRICAL</text>
     </symbol>
     <!-- Icon-only bolt tile -->
     <symbol id="cooper-bolt" viewBox="0 0 64 64">
@@ -420,375 +417,181 @@
 </section>
 
 <!-- ============================================================ -->
-<!-- VAN WRAP                                                      -->
+<!-- VAN WRAP — INTERACTIVE 3D MODEL                               -->
 <!-- ============================================================ -->
 <section class="section section-alt van-section" id="van" data-section="van">
   <div class="container">
     <span class="tag">Vehicle Branding</span>
-    <h2 class="section-title">Van Wrap <span class="highlight">Render</span></h2>
-    <p class="section-sub">A complete vinyl wrap design for a full-size work van in the Cooper black/red/blue livery — driver side, passenger side, and rear panel.</p>
+    <h2 class="section-title">Van Wrap <span class="highlight">3D Render</span></h2>
+    <p class="section-sub">Interactive 3D model of the full vinyl wrap in the Cooper black/red/blue livery. Drag to rotate, or use the view buttons to snap to a side.</p>
 
     <div class="van-stage">
       <div class="van-tabs">
-        <div class="van-tab active" data-tab="driver">Driver Side</div>
-        <div class="van-tab" data-tab="passenger">Passenger Side</div>
-        <div class="van-tab" data-tab="rear">Rear Panel</div>
+        <div class="van-tab" data-view="25">Driver Side</div>
+        <div class="van-tab" data-view="155">Passenger Side</div>
+        <div class="van-tab" data-view="245">Rear</div>
+        <div class="van-tab" data-view="90">Front</div>
+        <div class="van-tab active" data-view="auto">⟳ Auto-Rotate</div>
       </div>
 
-      <!-- DRIVER SIDE -->
-      <div class="van-view active" data-view="driver">
-        <div class="van-render">
-          <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" width="900" height="420">
-            <defs>
-              <linearGradient id="vanBody" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#F2F2F2"/>
-                <stop offset="100%" stop-color="#D8D8D8"/>
-              </linearGradient>
-              <linearGradient id="redStripe" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#DD2A1F"/>
-                <stop offset="100%" stop-color="#B01A12"/>
-              </linearGradient>
-              <linearGradient id="blackBand" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#0B0B0D"/>
-                <stop offset="100%" stop-color="#1A1A1F"/>
-              </linearGradient>
-              <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#555"/>
-                <stop offset="100%" stop-color="#333"/>
-              </linearGradient>
-              <filter id="shadow">
-                <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity=".35"/>
-              </filter>
-              <clipPath id="vanClip">
-                <path d="M70,340 L70,130 Q72,80 120,70 L600,60 Q680,58 730,80 L820,130 Q840,150 845,180 L845,340 Z"/>
-              </clipPath>
-              <radialGradient id="wheelGrad" cx="50%" cy="35%" r="50%">
-                <stop offset="0%" stop-color="#555"/>
-                <stop offset="100%" stop-color="#111"/>
-              </radialGradient>
-            </defs>
+      <div class="van3d-viewport">
+        <div class="van3d">
 
-            <!-- Ground shadow -->
-            <ellipse cx="460" cy="378" rx="380" ry="18" fill="rgba(0,0,0,.25)"/>
+          <!-- Ground shadow plane -->
+          <div class="van3d-shadow"></div>
 
-            <!-- VAN BODY -->
-            <g filter="url(#shadow)">
-              <path d="M70,340 L70,130 Q72,80 120,70 L600,60 Q680,58 730,80 L820,130 Q840,150 845,180 L845,340 Z"
-                    fill="url(#vanBody)" stroke="#bbb" stroke-width="1.5"/>
+          <!-- DRIVER SIDE (van left; front of van at left of face) -->
+          <div class="face f-driver">
+            <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="680" height="300" fill="#E8E8EA"/>
+              <!-- windows: cab at left -->
+              <rect x="18" y="18" width="96" height="64" rx="6" fill="#9CC4DC" stroke="#AFAFB4" stroke-width="1.5"/>
+              <rect x="140" y="20" width="105" height="60" rx="4" fill="#9CC4DC" opacity=".85" stroke="#AFAFB4"/>
+              <rect x="260" y="20" width="105" height="60" rx="4" fill="#9CC4DC" opacity=".85" stroke="#AFAFB4"/>
+              <line x1="126" y1="0" x2="126" y2="300" stroke="#BBB" stroke-width="1.5" opacity=".6"/>
+              <!-- pinstripes + black band -->
+              <rect x="0" y="96" width="680" height="4" fill="#DD2A1F"/>
+              <rect x="0" y="100" width="680" height="80" fill="#101014"/>
+              <rect x="0" y="180" width="680" height="3" fill="#1E56B0"/>
+              <!-- badge + name -->
+              <use href="#cooper-badge" x="142" y="104" width="72" height="72"/>
+              <text x="230" y="138" fill="#FFFFFF" font-size="24" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="1.5">COOPER</text>
+              <text x="230" y="160" fill="#DD2A1F" font-size="14" font-weight="700" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="4">ELECTRICAL</text>
+              <text x="450" y="144" fill="#CCC" font-size="10" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing=".5">⚡ Panels · 💡 Lighting · 🔌 Outlets · 🏠 Smart Home</text>
+              <!-- lower black + strike -->
+              <rect x="0" y="183" width="680" height="117" fill="#0B0B0D"/>
+              <polygon points="0,246 0,274 680,220 680,192" fill="#1E56B0"/>
+              <polygon points="0,238 0,266 680,212 680,184" fill="#DD2A1F"/>
+              <text x="340" y="233" fill="#FFFFFF" font-size="11" font-weight="800" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="2" text-anchor="middle" transform="rotate(-4.5 340 229)">LICENSED · INSURED · RESIDENTIAL</text>
+              <!-- phone -->
+              <text x="340" y="278" fill="#FFFFFF" font-size="21" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="1.5" text-anchor="middle">(555) 555-0123</text>
+              <text x="340" y="294" fill="#3B82F6" font-size="9" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="1.5" text-anchor="middle">cooperelectrical.com</text>
+              <!-- wheels -->
+              <circle cx="150" cy="300" r="54" fill="#0A0A0A"/>
+              <circle cx="150" cy="300" r="42" fill="#1D1D22"/>
+              <circle cx="150" cy="300" r="14" fill="#8A8A90"/>
+              <circle cx="530" cy="300" r="54" fill="#0A0A0A"/>
+              <circle cx="530" cy="300" r="42" fill="#1D1D22"/>
+              <circle cx="530" cy="300" r="14" fill="#8A8A90"/>
+            </svg>
+          </div>
 
-              <!-- Black wrap base layer — lower half -->
-              <path d="M70,340 L70,220 L845,220 L845,340 Z" fill="#0B0B0D" clip-path="url(#vanClip)"/>
+          <!-- PASSENGER SIDE (van right; front of van at right of face) -->
+          <div class="face f-pass">
+            <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="680" height="300" fill="#E8E8EA"/>
+              <!-- windows: cab at right -->
+              <rect x="566" y="18" width="96" height="64" rx="6" fill="#9CC4DC" stroke="#AFAFB4" stroke-width="1.5"/>
+              <rect x="435" y="20" width="105" height="60" rx="4" fill="#9CC4DC" opacity=".85" stroke="#AFAFB4"/>
+              <rect x="315" y="20" width="105" height="60" rx="4" fill="#9CC4DC" opacity=".85" stroke="#AFAFB4"/>
+              <line x1="554" y1="0" x2="554" y2="300" stroke="#BBB" stroke-width="1.5" opacity=".6"/>
+              <!-- sliding door seam -->
+              <line x1="300" y1="0" x2="300" y2="300" stroke="#BBB" stroke-width="1" opacity=".4" stroke-dasharray="5,5"/>
+              <!-- pinstripes + black band -->
+              <rect x="0" y="96" width="680" height="4" fill="#DD2A1F"/>
+              <rect x="0" y="100" width="680" height="80" fill="#101014"/>
+              <rect x="0" y="180" width="680" height="3" fill="#1E56B0"/>
+              <!-- badge + name (mirrored position) -->
+              <use href="#cooper-badge" x="430" y="104" width="72" height="72"/>
+              <text x="518" y="138" fill="#FFFFFF" font-size="24" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="1.5">COOPER</text>
+              <text x="518" y="160" fill="#DD2A1F" font-size="14" font-weight="700" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="4">ELECTRICAL</text>
+              <text x="60" y="144" fill="#CCC" font-size="10" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing=".5">⚡ Panels · 💡 Lighting · 🔌 Outlets · 🏠 Smart Home</text>
+              <!-- lower black + strike (mirrored slope) -->
+              <rect x="0" y="183" width="680" height="117" fill="#0B0B0D"/>
+              <polygon points="0,192 0,220 680,274 680,246" fill="#1E56B0"/>
+              <polygon points="0,184 0,212 680,266 680,238" fill="#DD2A1F"/>
+              <text x="340" y="233" fill="#FFFFFF" font-size="11" font-weight="800" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="2" text-anchor="middle" transform="rotate(4.5 340 229)">LICENSED · INSURED · RESIDENTIAL</text>
+              <!-- phone -->
+              <text x="340" y="278" fill="#FFFFFF" font-size="21" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="1.5" text-anchor="middle">(555) 555-0123</text>
+              <text x="340" y="294" fill="#3B82F6" font-size="9" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="1.5" text-anchor="middle">cooperelectrical.com</text>
+              <!-- wheels -->
+              <circle cx="150" cy="300" r="54" fill="#0A0A0A"/>
+              <circle cx="150" cy="300" r="42" fill="#1D1D22"/>
+              <circle cx="150" cy="300" r="14" fill="#8A8A90"/>
+              <circle cx="530" cy="300" r="54" fill="#0A0A0A"/>
+              <circle cx="530" cy="300" r="42" fill="#1D1D22"/>
+              <circle cx="530" cy="300" r="14" fill="#8A8A90"/>
+            </svg>
+          </div>
 
-              <!-- Red diagonal strike (with blue shadow layer, echoing the bolt) -->
-              <polygon points="75,238 75,278 460,238 460,203" fill="#1E56B0" clip-path="url(#vanClip)" opacity=".9"/>
-              <polygon points="460,203 460,238 845,238 845,208" fill="#1E56B0" clip-path="url(#vanClip)" opacity=".9"/>
-              <polygon points="75,230 75,270 460,230 460,195" fill="url(#redStripe)" clip-path="url(#vanClip)"/>
-              <polygon points="460,195 460,230 845,230 845,200" fill="url(#redStripe)" clip-path="url(#vanClip)"/>
+          <!-- FRONT -->
+          <div class="face f-front">
+            <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="260" height="300" fill="#E8E8EA"/>
+              <!-- windshield -->
+              <rect x="18" y="14" width="224" height="92" rx="8" fill="#9CC4DC" stroke="#AFAFB4" stroke-width="1.5"/>
+              <!-- band -->
+              <rect x="0" y="112" width="260" height="4" fill="#DD2A1F"/>
+              <rect x="0" y="116" width="260" height="60" fill="#101014"/>
+              <rect x="0" y="176" width="260" height="3" fill="#1E56B0"/>
+              <use href="#cooper-badge" x="16" y="120" width="52" height="52"/>
+              <text x="80" y="142" fill="#FFFFFF" font-size="17" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="1">COOPER</text>
+              <text x="80" y="160" fill="#DD2A1F" font-size="10" font-weight="700" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="2.5">ELECTRICAL</text>
+              <!-- lower front -->
+              <rect x="0" y="179" width="260" height="121" fill="#C9C9CE"/>
+              <rect x="8" y="190" width="48" height="22" rx="5" fill="#FFFDE0" stroke="#AAA"/>
+              <rect x="204" y="190" width="48" height="22" rx="5" fill="#FFFDE0" stroke="#AAA"/>
+              <rect x="40" y="200" width="180" height="34" rx="6" fill="#232328"/>
+              <line x1="48" y1="211" x2="212" y2="211" stroke="#3A3A40" stroke-width="3"/>
+              <line x1="48" y1="222" x2="212" y2="222" stroke="#3A3A40" stroke-width="3"/>
+              <rect x="0" y="256" width="260" height="44" fill="#2A2A2E"/>
+              <rect x="95" y="264" width="70" height="16" rx="2" fill="#DDD" stroke="#999"/>
+              <text x="130" y="276" fill="#333" font-size="9" font-weight="700" font-family="monospace" text-anchor="middle" letter-spacing="2">CPR 5591</text>
+            </svg>
+          </div>
 
-              <!-- Black primary band -->
-              <rect x="70" y="140" width="775" height="78" fill="url(#blackBand)" clip-path="url(#vanClip)"/>
+          <!-- REAR -->
+          <div class="face f-rear">
+            <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="260" height="300" fill="#E8E8EA"/>
+              <!-- rear windows -->
+              <rect x="20" y="16" width="100" height="74" rx="6" fill="#9CC4DC" stroke="#AFAFB4" stroke-width="1.5"/>
+              <rect x="140" y="16" width="100" height="74" rx="6" fill="#9CC4DC" stroke="#AFAFB4" stroke-width="1.5"/>
+              <line x1="130" y1="0" x2="130" y2="300" stroke="#AAA" stroke-width="2" opacity=".55"/>
+              <!-- stripes -->
+              <rect x="0" y="104" width="260" height="10" fill="#DD2A1F"/>
+              <rect x="0" y="114" width="260" height="4" fill="#1E56B0"/>
+              <!-- black lower with center badge -->
+              <rect x="0" y="118" width="260" height="182" fill="#0B0B0D"/>
+              <use href="#cooper-badge" x="80" y="128" width="100" height="100"/>
+              <text x="130" y="252" fill="#FFFFFF" font-size="16" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" text-anchor="middle" letter-spacing="1">(555) 555-0123</text>
+              <text x="130" y="268" fill="#3B82F6" font-size="9" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif" text-anchor="middle" letter-spacing="1.5">cooperelectrical.com</text>
+              <!-- taillights -->
+              <rect x="6" y="18" width="14" height="60" rx="4" fill="#FF3B30" opacity=".9"/>
+              <rect x="240" y="18" width="14" height="60" rx="4" fill="#FF3B30" opacity=".9"/>
+              <!-- plate + bumper -->
+              <rect x="95" y="274" width="70" height="18" rx="2" fill="#DDD" stroke="#999"/>
+              <text x="130" y="287" fill="#333" font-size="9" font-weight="700" font-family="monospace" text-anchor="middle" letter-spacing="2">CPR 5591</text>
+              <rect x="0" y="294" width="260" height="6" fill="#8E8E94"/>
+            </svg>
+          </div>
 
-              <!-- Red pinstripe above band, blue pinstripe below -->
-              <rect x="70" y="137" width="775" height="4" fill="#DD2A1F" clip-path="url(#vanClip)"/>
-              <rect x="70" y="218" width="775" height="3" fill="#1E56B0" clip-path="url(#vanClip)"/>
-            </g>
-
-            <!-- LOGO + NAME on black band -->
-            <g clip-path="url(#vanClip)">
-              <!-- Cooper badge -->
-              <g transform="translate(100,143) scale(0.36)">
-                <circle cx="100" cy="100" r="97" fill="#0B0B0D"/>
-                <circle cx="100" cy="100" r="94" fill="none" stroke="#fff" stroke-width="2"/>
-                <circle cx="100" cy="100" r="85" fill="none" stroke="#fff" stroke-width="4"/>
-                <polygon points="121,29 85,87 105,87 95,125 138,69 116,69" fill="#1E56B0"/>
-                <polygon points="114,24 78,82 98,82 88,120 131,64 109,64" fill="#DD2A1F"/>
-                <text x="100" y="149" text-anchor="middle" font-family="'Arial Narrow','Segoe UI',system-ui,sans-serif" font-weight="900" font-size="31" fill="#fff" letter-spacing="1">COOPER</text>
-                <text x="100" y="170" text-anchor="middle" font-family="'Arial Narrow','Segoe UI',system-ui,sans-serif" font-weight="700" font-size="14" fill="#fff" letter-spacing="2.5">ELECTRICAL</text>
+          <!-- ROOF -->
+          <div class="face f-roof">
+            <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+              <rect width="680" height="260" fill="#DCDCE0"/>
+              <rect x="0" y="0" width="680" height="8" fill="#C6C6CC"/>
+              <rect x="0" y="252" width="680" height="8" fill="#C6C6CC"/>
+              <g transform="translate(268,26) scale(3.2)" opacity=".25">
+                <polygon points="39,4 23,28 32,28 27,44 45,20 35,20" fill="#1E56B0"/>
+                <polygon points="36,2 20,26 29,26 24,42 42,18 32,18" fill="#DD2A1F"/>
               </g>
+            </svg>
+          </div>
 
-              <!-- Company name -->
-              <text x="185" y="174" fill="#FFFFFF" font-size="24" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="1.5">COOPER</text>
-              <text x="185" y="196" fill="#DD2A1F" font-size="15" font-weight="700" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="4">ELECTRICAL</text>
+          <!-- BOTTOM -->
+          <div class="face f-bottom"></div>
 
-              <!-- Tagline on red strike -->
-              <text x="110" y="252" fill="#FFFFFF" font-size="11" font-weight="800" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="2">LICENSED · INSURED · RESIDENTIAL</text>
-
-              <!-- Phone number on lower black area -->
-              <text x="350" y="312" fill="#FFFFFF" font-size="26" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="2" text-anchor="middle">(555) 555-0123</text>
-              <text x="350" y="333" fill="#3B82F6" font-size="11" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="1.5" text-anchor="middle">cooperelectrical.com</text>
-
-              <!-- Large decorative bolt on right side -->
-              <g transform="translate(640,225) scale(2.1)" opacity=".18">
-                <polygon points="41,4 21,36 33,36 27,58 51,26 38,26" fill="#1E56B0" transform="translate(4,3)"/>
-                <polygon points="41,4 21,36 33,36 27,58 51,26 38,26" fill="#DD2A1F"/>
-              </g>
-
-              <!-- Service list on band -->
-              <text x="470" y="172" fill="#ccc" font-size="10" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing=".5">⚡ Panel Upgrades  ·  💡 Lighting  ·  🔌 Outlets  ·  🏠 Smart Home</text>
-            </g>
-
-            <!-- WINDOWS -->
-            <rect x="78" y="80" width="90" height="80" rx="6" fill="#7AB5D4" opacity=".5" stroke="#aaa" stroke-width="1.5"/>
-            <rect x="185" y="82" width="100" height="70" rx="4" fill="#7AB5D4" opacity=".4" stroke="#aaa" stroke-width="1"/>
-            <rect x="298" y="82" width="100" height="70" rx="4" fill="#7AB5D4" opacity=".4" stroke="#aaa" stroke-width="1"/>
-            <line x1="175" y1="68" x2="175" y2="340" stroke="#aaa" stroke-width="1" opacity=".5"/>
-            <line x1="720" y1="100" x2="720" y2="340" stroke="#aaa" stroke-width="1.5" opacity=".4"/>
-
-            <!-- WHEELS -->
-            <circle cx="185" cy="360" r="48" fill="#1a1a1a"/>
-            <circle cx="185" cy="360" r="40" fill="url(#wheelGrad)"/>
-            <circle cx="185" cy="360" r="14" fill="#ccc"/>
-            <line x1="185" y1="322" x2="185" y2="350" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="185" y1="370" x2="185" y2="398" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="147" y1="360" x2="175" y2="360" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="195" y1="360" x2="223" y2="360" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="158" y1="333" x2="178" y2="353" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="192" y1="367" x2="212" y2="387" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="158" y1="387" x2="178" y2="367" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="192" y1="353" x2="212" y2="333" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-
-            <circle cx="700" cy="360" r="48" fill="#1a1a1a"/>
-            <circle cx="700" cy="360" r="40" fill="url(#wheelGrad)"/>
-            <circle cx="700" cy="360" r="14" fill="#ccc"/>
-            <line x1="700" y1="322" x2="700" y2="350" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="700" y1="370" x2="700" y2="398" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="662" y1="360" x2="690" y2="360" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="710" y1="360" x2="738" y2="360" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="673" y1="333" x2="693" y2="353" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="707" y1="367" x2="727" y2="387" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="673" y1="387" x2="693" y2="367" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="707" y1="353" x2="727" y2="333" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-
-            <!-- Lights -->
-            <rect x="50" y="130" width="26" height="36" rx="4" fill="#FFFDE0" stroke="#ccc" stroke-width="1" opacity=".9"/>
-            <rect x="50" y="170" width="26" height="20" rx="3" fill="#FF6B35" opacity=".7"/>
-            <rect x="826" y="140" width="22" height="40" rx="4" fill="#FFFDE0" stroke="#ccc" stroke-width="1" opacity=".8"/>
-            <rect x="826" y="185" width="22" height="25" rx="3" fill="#FF3B30" opacity=".8"/>
-
-            <!-- Bumpers -->
-            <rect x="36" y="280" width="42" height="60" rx="4" fill="#ccc" stroke="#aaa" stroke-width="1"/>
-            <rect x="840" y="285" width="38" height="55" rx="4" fill="#ccc" stroke="#aaa" stroke-width="1"/>
-
-            <!-- Ground line -->
-            <rect x="30" y="375" width="850" height="6" rx="3" fill="url(#ground)" opacity=".6"/>
-
-            <!-- Mirror -->
-            <rect x="36" y="100" width="28" height="18" rx="3" fill="#ddd" stroke="#bbb" stroke-width="1"/>
-          </svg>
         </div>
-        <div class="van-info-grid">
-          <div class="van-info-item"><h5>Livery Colors</h5><p>#0B0B0D Black · #DD2A1F Red · #1E56B0 Blue</p></div>
-          <div class="van-info-item"><h5>Design Feature</h5><p>Red strike with blue shadow, echoing the bolt</p></div>
-          <div class="van-info-item"><h5>Logo Placement</h5><p>Cooper badge on front quarter panel</p></div>
-          <div class="van-info-item"><h5>Phone Placement</h5><p>Center body panel, 26pt bold white</p></div>
-        </div>
+        <div class="van3d-hint">Drag to rotate · Scroll buttons above to snap views</div>
       </div>
 
-      <!-- PASSENGER SIDE -->
-      <div class="van-view" data-view="passenger">
-        <div class="van-render">
-          <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" width="900" height="420">
-            <defs>
-              <linearGradient id="vanBody2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#F2F2F2"/>
-                <stop offset="100%" stop-color="#D8D8D8"/>
-              </linearGradient>
-              <linearGradient id="redStripe2" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#B01A12"/>
-                <stop offset="100%" stop-color="#DD2A1F"/>
-              </linearGradient>
-              <clipPath id="vanClip2">
-                <path d="M55,340 L55,180 Q60,150 80,130 L170,80 Q220,58 300,60 L780,70 Q830,72 832,80 L848,130 Q860,150 860,180 L860,340 Z"/>
-              </clipPath>
-              <radialGradient id="wg2" cx="50%" cy="35%" r="50%">
-                <stop offset="0%" stop-color="#555"/>
-                <stop offset="100%" stop-color="#111"/>
-              </radialGradient>
-            </defs>
-
-            <ellipse cx="460" cy="378" rx="380" ry="18" fill="rgba(0,0,0,.25)"/>
-
-            <!-- VAN BODY (mirrored) -->
-            <path d="M55,340 L55,180 Q60,150 80,130 L170,80 Q220,58 300,60 L780,70 Q830,72 832,80 L848,130 Q860,150 860,180 L860,340 Z"
-                  fill="url(#vanBody2)" stroke="#bbb" stroke-width="1.5"/>
-
-            <!-- Black lower area -->
-            <path d="M55,220 L55,340 L860,340 L860,220 Z" fill="#0B0B0D" clip-path="url(#vanClip2)"/>
-
-            <!-- Red strike with blue shadow (reversed) -->
-            <polygon points="860,228 860,268 430,228 430,196" fill="#1E56B0" clip-path="url(#vanClip2)" opacity=".9"/>
-            <polygon points="430,196 430,228 55,233 55,203" fill="#1E56B0" clip-path="url(#vanClip2)" opacity=".9"/>
-            <polygon points="860,220 860,260 430,220 430,188" fill="url(#redStripe2)" clip-path="url(#vanClip2)"/>
-            <polygon points="430,188 430,220 55,225 55,195" fill="url(#redStripe2)" clip-path="url(#vanClip2)"/>
-
-            <!-- Black primary band -->
-            <rect x="55" y="140" width="805" height="78" fill="#141418" clip-path="url(#vanClip2)"/>
-            <rect x="55" y="137" width="805" height="4" fill="#DD2A1F" clip-path="url(#vanClip2)"/>
-            <rect x="55" y="218" width="805" height="3" fill="#1E56B0" clip-path="url(#vanClip2)"/>
-
-            <g clip-path="url(#vanClip2)">
-              <!-- Large decorative bolt on LEFT side -->
-              <g transform="translate(115,225) scale(2.1)" opacity=".15">
-                <polygon points="41,4 21,36 33,36 27,58 51,26 38,26" fill="#1E56B0" transform="translate(4,3)"/>
-                <polygon points="41,4 21,36 33,36 27,58 51,26 38,26" fill="#DD2A1F"/>
-              </g>
-
-              <!-- Cooper badge (near rear) -->
-              <g transform="translate(585,143) scale(0.36)">
-                <circle cx="100" cy="100" r="97" fill="#0B0B0D"/>
-                <circle cx="100" cy="100" r="94" fill="none" stroke="#fff" stroke-width="2"/>
-                <circle cx="100" cy="100" r="85" fill="none" stroke="#fff" stroke-width="4"/>
-                <polygon points="121,29 85,87 105,87 95,125 138,69 116,69" fill="#1E56B0"/>
-                <polygon points="114,24 78,82 98,82 88,120 131,64 109,64" fill="#DD2A1F"/>
-                <text x="100" y="149" text-anchor="middle" font-family="'Arial Narrow','Segoe UI',system-ui,sans-serif" font-weight="900" font-size="31" fill="#fff" letter-spacing="1">COOPER</text>
-                <text x="100" y="170" text-anchor="middle" font-family="'Arial Narrow','Segoe UI',system-ui,sans-serif" font-weight="700" font-size="14" fill="#fff" letter-spacing="2.5">ELECTRICAL</text>
-              </g>
-
-              <text x="670" y="174" fill="#FFFFFF" font-size="24" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="1.5">COOPER</text>
-              <text x="670" y="196" fill="#DD2A1F" font-size="15" font-weight="700" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="4">ELECTRICAL</text>
-
-              <!-- Phone -->
-              <text x="440" y="312" fill="#FFFFFF" font-size="26" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="2" text-anchor="middle">(555) 555-0123</text>
-              <text x="440" y="333" fill="#3B82F6" font-size="11" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="1.5" text-anchor="middle">cooperelectrical.com</text>
-
-              <!-- Tagline on red strike -->
-              <text x="440" y="252" fill="#FFFFFF" font-size="11" font-weight="800" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing="2" text-anchor="middle">LICENSED · INSURED · RESIDENTIAL</text>
-
-              <!-- Service list -->
-              <text x="400" y="172" fill="#ccc" font-size="10" font-family="'Segoe UI',system-ui,sans-serif" letter-spacing=".5" text-anchor="middle">⚡ Panel Upgrades  ·  💡 Lighting  ·  🔌 Outlets  ·  🏠 Smart Home</text>
-            </g>
-
-            <!-- Windows -->
-            <rect x="105" y="82" width="100" height="70" rx="4" fill="#7AB5D4" opacity=".4" stroke="#aaa" stroke-width="1"/>
-            <rect x="218" y="82" width="100" height="70" rx="4" fill="#7AB5D4" opacity=".4" stroke="#aaa" stroke-width="1"/>
-            <rect x="330" y="80" width="200" height="140" rx="4" fill="none" stroke="#aaa" stroke-width="1.5" opacity=".4"/>
-            <line x1="430" y1="80" x2="430" y2="220" stroke="#aaa" stroke-width="1" opacity=".3" stroke-dasharray="4,4"/>
-            <line x1="320" y1="68" x2="320" y2="340" stroke="#aaa" stroke-width="1" opacity=".5"/>
-            <rect x="820" y="95" width="50" height="110" rx="6" fill="#7AB5D4" opacity=".35" stroke="#aaa" stroke-width="1.5"/>
-
-            <!-- Wheels -->
-            <circle cx="200" cy="360" r="48" fill="#1a1a1a"/>
-            <circle cx="200" cy="360" r="40" fill="url(#wg2)"/>
-            <circle cx="200" cy="360" r="14" fill="#ccc"/>
-            <line x1="200" y1="322" x2="200" y2="350" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="200" y1="370" x2="200" y2="398" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="162" y1="360" x2="190" y2="360" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="210" y1="360" x2="238" y2="360" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-
-            <circle cx="715" cy="360" r="48" fill="#1a1a1a"/>
-            <circle cx="715" cy="360" r="40" fill="url(#wg2)"/>
-            <circle cx="715" cy="360" r="14" fill="#ccc"/>
-            <line x1="715" y1="322" x2="715" y2="350" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="715" y1="370" x2="715" y2="398" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="677" y1="360" x2="705" y2="360" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-            <line x1="725" y1="360" x2="753" y2="360" stroke="#aaa" stroke-width="3" stroke-linecap="round"/>
-
-            <!-- Lights -->
-            <rect x="36" y="150" width="26" height="40" rx="4" fill="#FF3B30" opacity=".8"/>
-            <rect x="36" y="195" width="26" height="20" rx="3" fill="#FF6B35" opacity=".6"/>
-            <rect x="858" y="130" width="26" height="36" rx="4" fill="#FFFDE0" stroke="#ccc" stroke-width="1" opacity=".9"/>
-
-            <!-- Bumpers -->
-            <rect x="20" y="285" width="38" height="55" rx="4" fill="#ccc" stroke="#aaa" stroke-width="1"/>
-            <rect x="862" y="280" width="42" height="60" rx="4" fill="#ccc" stroke="#aaa" stroke-width="1"/>
-
-            <!-- Mirror -->
-            <rect x="858" y="105" width="28" height="18" rx="3" fill="#ddd" stroke="#bbb" stroke-width="1"/>
-
-            <rect x="20" y="375" width="870" height="6" rx="3" fill="#444" opacity=".6"/>
-          </svg>
-        </div>
-        <div class="van-info-grid">
-          <div class="van-info-item"><h5>Side Door</h5><p>Sliding door panel kept clear for branding</p></div>
-          <div class="van-info-item"><h5>Logo Placement</h5><p>Badge on rear quarter for visibility when parked</p></div>
-          <div class="van-info-item"><h5>Phone</h5><p>Center body, reads clearly at 30 ft</p></div>
-          <div class="van-info-item"><h5>Web URL</h5><p>Below phone number in blue</p></div>
-        </div>
+      <div class="van-info-grid">
+        <div class="van-info-item"><h5>Livery Colors</h5><p>#0B0B0D Black · #DD2A1F Red · #1E56B0 Blue</p></div>
+        <div class="van-info-item"><h5>Design Feature</h5><p>Red strike with blue shadow, echoing the bolt</p></div>
+        <div class="van-info-item"><h5>Logo Placement</h5><p>Badge on both sides, rear doors &amp; front band</p></div>
+        <div class="van-info-item"><h5>Phone Placement</h5><p>Lower panel all sides, white bold</p></div>
       </div>
-
-      <!-- REAR PANEL -->
-      <div class="van-view" data-view="rear">
-        <div class="van-render">
-          <svg viewBox="0 0 500 520" xmlns="http://www.w3.org/2000/svg" width="500" height="520">
-            <defs>
-              <linearGradient id="rearBody" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#EFEFEF"/>
-                <stop offset="100%" stop-color="#CCCCCC"/>
-              </linearGradient>
-              <linearGradient id="rearDark" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#17171C"/>
-                <stop offset="100%" stop-color="#0B0B0D"/>
-              </linearGradient>
-            </defs>
-
-            <!-- Ground shadow -->
-            <ellipse cx="250" cy="490" rx="200" ry="14" fill="rgba(0,0,0,.3)"/>
-
-            <!-- VAN REAR BODY -->
-            <rect x="50" y="60" width="400" height="390" rx="16" fill="url(#rearBody)" stroke="#bbb" stroke-width="2"/>
-
-            <!-- Black lower third -->
-            <rect x="50" y="310" width="400" height="140" fill="url(#rearDark)"/>
-            <rect x="50" y="390" width="400" height="60" rx="16" fill="url(#rearDark)"/>
-
-            <!-- Red accent stripe with blue underline -->
-            <rect x="50" y="296" width="400" height="16" fill="#DD2A1F"/>
-            <rect x="50" y="312" width="400" height="5" fill="#1E56B0"/>
-
-            <!-- Door split line -->
-            <line x1="250" y1="60" x2="250" y2="450" stroke="#aaa" stroke-width="2" opacity=".5"/>
-            <rect x="240" y="60" width="20" height="390" fill="rgba(0,0,0,.08)"/>
-
-            <!-- Rear windows (upper) -->
-            <rect x="65" y="80" width="165" height="110" rx="8" fill="#7AB5D4" opacity=".4" stroke="#aaa" stroke-width="1.5"/>
-            <rect x="270" y="80" width="165" height="110" rx="8" fill="#7AB5D4" opacity=".4" stroke="#aaa" stroke-width="1.5"/>
-
-            <!-- CENTER BADGE (spanning doors) -->
-            <g transform="translate(184,200) scale(0.66)">
-              <circle cx="100" cy="100" r="97" fill="#0B0B0D"/>
-              <circle cx="100" cy="100" r="94" fill="none" stroke="#fff" stroke-width="2"/>
-              <circle cx="100" cy="100" r="85" fill="none" stroke="#fff" stroke-width="4"/>
-              <polygon points="121,29 85,87 105,87 95,125 138,69 116,69" fill="#1E56B0"/>
-              <polygon points="114,24 78,82 98,82 88,120 131,64 109,64" fill="#DD2A1F"/>
-              <text x="100" y="149" text-anchor="middle" font-family="'Arial Narrow','Segoe UI',system-ui,sans-serif" font-weight="900" font-size="31" fill="#fff" letter-spacing="1">COOPER</text>
-              <text x="100" y="170" text-anchor="middle" font-family="'Arial Narrow','Segoe UI',system-ui,sans-serif" font-weight="700" font-size="14" fill="#fff" letter-spacing="2.5">ELECTRICAL</text>
-            </g>
-
-            <!-- Company name -->
-            <text x="250" y="358" fill="#FFFFFF" font-size="19" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" text-anchor="middle" letter-spacing="3">COOPER</text>
-            <text x="250" y="378" fill="#DD2A1F" font-size="12" font-weight="700" font-family="'Segoe UI',system-ui,sans-serif" text-anchor="middle" letter-spacing="5">ELECTRICAL</text>
-
-            <!-- Phone -->
-            <text x="250" y="412" fill="#FFFFFF" font-size="20" font-weight="900" font-family="'Segoe UI',system-ui,sans-serif" text-anchor="middle" letter-spacing="1">(555) 555-0123</text>
-            <text x="250" y="432" fill="#3B82F6" font-size="10" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif" text-anchor="middle" letter-spacing="2">cooperelectrical.com</text>
-
-            <!-- Tail lights -->
-            <rect x="38" y="100" width="18" height="60" rx="5" fill="#FF3B30" opacity=".9"/>
-            <rect x="38" y="165" width="18" height="30" rx="4" fill="#FFBD2E" opacity=".8"/>
-            <rect x="444" y="100" width="18" height="60" rx="5" fill="#FF3B30" opacity=".9"/>
-            <rect x="444" y="165" width="18" height="30" rx="4" fill="#FFBD2E" opacity=".8"/>
-
-            <!-- License plate area -->
-            <rect x="190" y="455" width="120" height="28" rx="4" fill="#CCCCCC"/>
-            <rect x="196" y="459" width="108" height="20" rx="2" fill="#FAFAFA" stroke="#999" stroke-width="1"/>
-            <text x="250" y="473" fill="#333" font-size="9" font-weight="700" font-family="monospace" text-anchor="middle" letter-spacing="3">CPR 5591</text>
-
-            <!-- Bumper -->
-            <rect x="60" y="448" width="380" height="30" rx="6" fill="#CCC" stroke="#AAA" stroke-width="1"/>
-            <rect x="38" y="445" width="424" height="8" rx="3" fill="#BBB"/>
-
-            <!-- Ground -->
-            <rect x="30" y="475" width="440" height="6" rx="3" fill="#555" opacity=".5"/>
-          </svg>
-        </div>
-        <div class="van-info-grid">
-          <div class="van-info-item"><h5>Rear Windows</h5><p>Perforated vinyl allows visibility out</p></div>
-          <div class="van-info-item"><h5>Central Badge</h5><p>Full Cooper badge centered across doors</p></div>
-          <div class="van-info-item"><h5>License Area</h5><p>Kept clear for compliance</p></div>
-          <div class="van-info-item"><h5>Phone</h5><p>20pt bold white, visible at 50 ft in traffic</p></div>
-        </div>
-      </div>
-
     </div><!-- /van-stage -->
   </div>
 </section>
