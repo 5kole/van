@@ -199,29 +199,39 @@ body{
 }
 .van3d-viewport:active{cursor:grabbing}
 .van3d{
-  position:absolute;left:50%;top:46%;width:680px;height:300px;
-  margin-left:-340px;margin-top:-150px;
+  position:absolute;left:50%;top:46%;width:740px;height:300px;
+  margin-left:-370px;margin-top:-150px;
   transform-style:preserve-3d;
   transform:rotateX(-14deg) rotateY(25deg);
 }
 .van3d .face{position:absolute;left:50%;top:50%;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .van3d .face svg{width:100%;height:100%;display:block}
-.f-driver{width:680px;height:300px;transform:translate(-50%,-50%) translateZ(130px)}
-.f-pass{width:680px;height:300px;transform:translate(-50%,-50%) rotateY(180deg) translateZ(130px)}
-.f-front{width:260px;height:300px;transform:translate(-50%,-50%) rotateY(-90deg) translateZ(340px)}
-.f-rear{width:260px;height:300px;transform:translate(-50%,-50%) rotateY(90deg) translateZ(340px)}
-.f-roof{width:680px;height:260px;transform:translate(-50%,-50%) rotateX(90deg) translateZ(150px)}
-.f-bottom{width:680px;height:260px;transform:translate(-50%,-50%) rotateX(-90deg) translateZ(150px);background:#0A0A0C}
+/*
+  Chevy Express 2500 cargo geometry (model space, px):
+  X along length: grille -370 → rear +370; hood -370..-220, body -220..+370
+  Y vertical: roof -150 → ground +150; hood top at +12
+  Z across width: ±130
+*/
+.f-driver{width:590px;height:300px;transform:translate(-50%,-50%) translate3d(75px,0,130px)}
+.f-pass{width:590px;height:300px;transform:translate(-50%,-50%) translate3d(75px,0,-130px) rotateY(180deg)}
+.f-rear{width:260px;height:300px;transform:translate(-50%,-50%) translate3d(370px,0,0) rotateY(90deg)}
+.f-grille{width:260px;height:138px;transform:translate(-50%,-50%) translate3d(-370px,81px,0) rotateY(-90deg)}
+.f-windshield{width:260px;height:171px;transform:translate(-50%,-50%) translate3d(-190px,-70px,0) rotateY(-90deg) rotateX(20.6deg)}
+.f-hoodtop{width:150px;height:260px;transform:translate(-50%,-50%) translate3d(-295px,12px,0) rotateX(90deg)}
+.f-fender-l{width:150px;height:138px;transform:translate(-50%,-50%) translate3d(-295px,81px,130px)}
+.f-fender-r{width:150px;height:138px;transform:translate(-50%,-50%) translate3d(-295px,81px,-130px) rotateY(180deg)}
+.f-roof{width:530px;height:260px;transform:translate(-50%,-50%) translate3d(105px,-150px,0) rotateX(90deg)}
+.f-bottom{width:590px;height:260px;transform:translate(-50%,-50%) translate3d(75px,150px,0) rotateX(-90deg);background:#0A0A0C}
 /* simple static shading per face */
-.f-pass::after,.f-rear::after,.f-front::after{content:'';position:absolute;inset:0;pointer-events:none}
-.f-pass::after{background:rgba(0,0,15,.16)}
+.f-pass::after,.f-rear::after,.f-grille::after,.f-fender-r::after{content:'';position:absolute;inset:0;pointer-events:none}
+.f-pass::after,.f-fender-r::after{background:rgba(0,0,15,.16)}
 .f-rear::after{background:rgba(0,0,15,.22)}
-.f-front::after{background:rgba(0,0,15,.08)}
+.f-grille::after{background:rgba(0,0,15,.08)}
 /* ground shadow plane */
 .van3d-shadow{
-  position:absolute;left:50%;top:50%;width:760px;height:320px;
-  margin-left:-380px;margin-top:-160px;
-  transform:rotateX(90deg) translateZ(-168px);
+  position:absolute;left:50%;top:50%;width:840px;height:340px;
+  margin-left:-420px;margin-top:-170px;
+  transform:rotateX(90deg) translateZ(-166px);
   background:radial-gradient(ellipse 48% 42% at 50% 50%,rgba(0,0,0,.6),transparent 72%);
   filter:blur(12px);
 }

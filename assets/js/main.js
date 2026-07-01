@@ -46,7 +46,7 @@ if (van && viewport) {
   let scale = 1;
 
   function fitScale() {
-    scale = Math.min(1, viewport.clientWidth / 780);
+    scale = Math.min(1, viewport.clientWidth / 840);
   }
   fitScale();
   window.addEventListener('resize', fitScale);
